@@ -5,11 +5,10 @@ from send_email import send_email
 df = pandas.read_csv("/Users/jaysim/Documents/Coding-Project/company-website-bonus/topics.csv")
 
 st.header("Contact me")
-topics_list = df["topic"].tolist()
 
 with st.form(key="email_forms"):
     user_email = st.text_input(label="Enter your email")
-    selected_topic = st.selectbox('What topic do you want to discuss?', topics_list)
+    selected_topic = st.selectbox('What topic do you want to discuss?', df["topics"])
     raw_message = st.text_area(label="Enter your message")
     message = f"""\
 Subject: New mail from {user_email}
